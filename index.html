@@ -5,9 +5,7 @@
     <body>
         <h1>test edit</h1>
 	<script>
-function caesarCipher(){
-  var message = document.getElementById("userMessage").value;
-  var k = document.getElementById("shifter").value;
+function caesarCipher(message = "Get pranked bro", k = 0){
   if(typeof message !== 'string'){
     message = message.toString(); 
   }
@@ -55,12 +53,16 @@ function decryptCaesarCipher(message = "Get pranked bro", k = 0){
   }
   return caesar;
 }
-	
+function caesarBridge(){
+	var secretCode = document.getElementById("userMessage").value;
+	var secretShift = document.getElementById("shifter").value;
+	console.log(caesarCipher(secretCode, secretShift);
+}	
 </script>
-	<form>
+	<form name= "caesarForm" action="">
   	Message to be encrypted: <input type="text" name="messageRecorder" id = "userMessage"><br>
   	Amount to be shifted: <input type="text" name="shiftRecorder" id = "shifter"><br><br>
-  	<input type="button" onclick="caesarCipher()" value="Submit">
+  	<input type="button" value="Submit" id="submit" onClick = "caesarBridge">
 	</form>
 	
     </body>
