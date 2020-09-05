@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "Paragraph changed.";
+            }
+
+            function reverse() {
+                document.getElementById("demo").innerHTML = "reversed.";
+            }
+
+        </script>
+    </head>
+    <body>
+
+        <h2>JavaScript in Head</h2>
+
+        <p id="demo">A Paragraph.</p>
+
+        <button type="button" onclick="myFunction()">Try it</button>
+	    <button type="button" onclick="reverse()">Reverse</button>
+
+	    <script> 
+	    	//<element event="some JavaScript">
+
+	    	/* Basic function
+ 			var a, b;
+ 			a = 5;
+ 			b = 10;
+ 			function testRet(a, b){
+ 				return a+b;
+ 			}
+ 			var c;
+ 			c = testRet(a, b);
+ 			window.alert(c);
+ 			*/
+
+ 			/* Reading/wrtiting
+ 			var x;
+ 			x = window.prompt("enter number");
+ 			window.alert(x);
+ 			*/
+
+ 			/*objects
+ 			var person = {
+ 				first:"Nathan", 
+ 				last:"Wilke",
+				fullName: function(){
+					return this.first + " " + this.last;
+				}
+ 			 };
+ 			document.write(person.first);
+ 			document.write(person["last"]);
+ 			document.write(person.fullName());
+ 			*/
+
+ 			/*arrays
+ 			document.write("test: ");
+ 			var arr = ["a", "b", "c"];
+ 			arr.push("d");
+ 			document.write("add d: "+arr );
+ 			arr.pop();
+ 			document.write("subtract d: "+arr);
+ 			// splice in new elements
+ 			// index, number of elements removed, new elements added
+ 			arr.splice(1, 0, "1", "2", "3")
+			document.write("splice: "+arr);
+			*/
+
+	    </script>
+
+    </body>
+</html> 
