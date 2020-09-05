@@ -1,0 +1,68 @@
+body{
+  background-image: url("decrypt.jpg");
+  background-color: grey;
+}
+
+h1{
+  color:white;
+  background-color: #2C3539;
+  text-align: center;
+  padding: 30px;
+}
+
+p1{
+  display:block;
+  color:white;
+  background-color: #2C3539;
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+}
+
+#Home {
+  text-align: center;
+  text-shadow: 1px 1px;
+  color: white;
+  font-family: "Corrier New";
+  font-size: 50px;
+}
+
+#Welcome {
+  color: white;
+  font-sixe: 30px;
+}
+#container {
+    background-color: #000066;
+    color: white;
+    font-weight: bold;
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.cursor-trail {
+    position: absolute;
+    z-index: 10000;
+    display: inline-block;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    background-color: black;
+    pointer-events: none;
+}
+
+.yellow-trail {
+    background-color: yellow;
+}
+
+.navigation{
+  background-color: white;
+  text-align: center;
+  color: white;
+  font-family: "Corrier New";
+  font-size: 30px;
+}
