@@ -6,7 +6,7 @@
 </head>
 <body>
  	<p id="return">Something went wrong!</p>
-
+ 	<a href="main.html">Go back</a>
  	<script>
  		//Removes spaces from a string
 function purify(message){
@@ -74,6 +74,6 @@ function decryptCipher(message, key){
 		encryptedCipher = encryptCipher(message, key);
 		document.getElementById("return").innerHTML = "Encrypted message: " + encryptedCipher;
  	</script>
- 	<input type="button" value="Back" onclick=history.back()/>
+ 	
 </body>
 </html>

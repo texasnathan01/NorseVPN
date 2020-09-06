@@ -1,9 +1,3 @@
-//Encrypts message into vigenere cipher
-function vigenere(message, key){
-	message = purify(message);
-	key = keyLen(key, message.length);
-}
-
 //Removes spaces from a string
 function purify(message){
 	x = message.split(" ");
@@ -33,7 +27,7 @@ function encrypt(message, key){
 }
 
 //Decyptes an individual character
-function encrypt(message, key){
+function decrypt(message, key){
 	var x = message.charCodeAt(0);
 	var y = key.charCodeAt(0);
 	var z = x - (y - 65);
@@ -44,9 +38,9 @@ function encrypt(message, key){
 }
 
 //Encrypts entire message
-function vigenereCipher(message, key){
+function encryptCipher(message, key){
 	message = purify(message);
-	key = keyLen(key);
+	key = keyLen(key, message.length);
 	var encrypted = "";
 	for(var i = 0; i < message.length; i++){
 		encrypted += encrypt(message[i], key[i]);
@@ -55,8 +49,8 @@ function vigenereCipher(message, key){
 }
 
 //Decryptes entire message
-funciton decryptCipher(message, key){
-	key = keyLen(key);
+function decryptCipher(message, key){
+	key = keyLen(key, message.length);
 	var decrypted = "";
 	for (var i=0; i < message.length; i++){
 		decrypted += decrypt(message[i], key[i]);
