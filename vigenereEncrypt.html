@@ -2,6 +2,7 @@
 <html>
 <head>
  	<link rel="stylesheet" href="tabFormatting.css">
+
 </head>
 <body>
  	<p id="return">Something went wrong!</p>
@@ -73,5 +74,6 @@ function decryptCipher(message, key){
 		encryptedCipher = encryptCipher(message, key);
 		document.getElementById("return").innerHTML = "Encrypted message: " + encryptedCipher;
  	</script>
+ 	<input type="button" value="Back" onclick=history.back()/>
 </body>
 </html>
