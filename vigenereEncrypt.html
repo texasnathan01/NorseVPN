@@ -69,7 +69,7 @@ function decryptCipher(message, key){
 }
 
 
- 		var message = window.prompt("Input message to encrypt: ");
+ 		var message = window.prompt("Input message to encrypt (All caps only): ");
 		var key = window.prompt("Input key to encrypt message with: ");
 		encryptedCipher = encryptCipher(message, key);
 		document.getElementById("return").innerHTML = "Encrypted message: " + encryptedCipher;
