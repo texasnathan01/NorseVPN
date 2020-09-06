@@ -1,10 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="tabFormatting.css">
-
+ 	<link rel="stylesheet" href="tabFormatting.css">
 </head>
 <body>
-  <h1>Type a message to encrypt</h1>
+ 	<p id="return">Something went wrong!</p>
+
+ 	<script>
+ 		//Removes spaces from a string
+function purify(message){
+	x = message.split(" ");
+	x = x.join("");
+	return x;
+}
+
+//Return the key repeated for uproper length
+function keyLen(key, len){
+	var ret = "";
+	var x = len/key.length;
+	ret += key.repeat([x]);
+	var remain = len % key.length;
+	ret += key.slice(0, remain);
+	return ret;
+}
+
+//Encrypts individual character
+function encrypt(message, key){
+	var x = message.charCodeAt(0);
+	var y = key.charCodeAt(0);
+	var z = x + (y - 65);
+	if (z > 90){
+		z -= 26;
+	}
+	return String.fromCharCode(z);
+}
+
+//Decyptes an individual character
+function decrypt(message, key){
+	var x = message.charCodeAt(0);
+	var y = key.charCodeAt(0);
+	var z = x - (y - 65);
+	if (z < 65){
+		z += 26;
+	}
+	return String.fromCharCode(z);
+}
+
+//Encrypts entire message
+function encryptCipher(message, key){
+	message = purify(message);
+	key = keyLen(key, message.length);
+	var encrypted = "";
+	for(var i = 0; i < message.length; i++){
+		encrypted += encrypt(message[i], key[i]);
+	}
+	return encrypted;
+}
+
+//Decryptes entire message
+function decryptCipher(message, key){
+	key = keyLen(key, message.length);
+	var decrypted = "";
+	for (var i=0; i < message.length; i++){
+		decrypted += decrypt(message[i], key[i]);
+	}
+	return decrypted;
+}
+
+
+ 		var message = window.prompt("Input message to encrypt: ");
+		var key = window.prompt("Input key to encrypt message with: ");
+		encryptedCipher = encryptCipher(message, key);
+		document.getElementById("return").innerHTML = "Encrypted message: " + encryptedCipher;
+ 	</script>
 </body>
 </html>
