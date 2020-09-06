@@ -20,13 +20,25 @@ function keyLen(key, len){
 	ret += key.slice(0, remain);
 	return ret;
 }
- //Encrypts individual character
+
+//Encrypts individual character
 function encrypt(message, key){
 	var x = message.charCodeAt(0);
 	var y = key.charCodeAt(0);
 	var z = x + (y - 65);
 	if (z > 90){
 		z -= 26;
+	}
+	return String.fromCharCode(z);
+}
+
+//Decyptes an individual character
+function encrypt(message, key){
+	var x = message.charCodeAt(0);
+	var y = key.charCodeAt(0);
+	var z = x - (y - 65);
+	if (z < 65){
+		z += 26;
 	}
 	return String.fromCharCode(z);
 }
@@ -40,4 +52,14 @@ function vigenereCipher(message, key){
 		encrypted += encrypt(message[i], key[i]);
 	}
 	return encrypted;
+}
+
+//Decryptes entire message
+funciton decryptCipher(message, key){
+	key = keyLen(key);
+	var decrypted = "";
+	for (var i=0; i < message.length; i++){
+		decrypted += decrypt(message[i], key[i]);
+	}
+	return decrypted;
 }
