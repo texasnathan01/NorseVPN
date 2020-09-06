@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html>
-<title>NorseVPN</title>
-
-<head>
-  <link rel="stylesheet" href="formatting.css">
-  <script type="text/javascript" src="cursorTrail.js"></script>
-  <h1 id="Home"> NorseVPN! </h1>
-
-<style>
-u1{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
+    <head>
+    </head>
+    <body>
+        <h1>test edit</h1>
+	<script>
+function caesarCipher(message = "Get pranked bro", k = 0){
+  if(typeof message !== 'string'){
+    message = message.toString(); 
+  }
+  var caesar = "";
+  for(var i = 0; i < message.length; i++){
+    if(message.charCodeAt(i) < 58 && message.charCodeAt(i) > 47){
+      var z = message.charCodeAt(i) - 48;
+      caesar += String.fromCharCode((z+k)%10 + 48)
+    }
+    else if(message.charCodeAt(i) > 64 && message.charCodeAt(i) < 91){
+      var x = message.charCodeAt(i) - 65;
+      caesar += String.fromCharCode((x+k)%26 + 65);
+    }
+    else if(message.charCodeAt(i) > 96 && message.charCodeAt(i) < 123){
+      var y = message.charCodeAt(i) - 97;
+      caesar += String.fromCharCode((y+k)%26 + 97);
+    }
+    else{
+      caesar += message.charAt(i);
+    }
+  }
+  return caesar;
 }
-
-li{
-  float: left;
+function decryptCaesarCipher(message = "Get pranked bro", k = 0){
+  if(typeof message !== 'string'){
+    message = message.toString(); 
+  }
+  var caesar = "";
+  for(var i = 0; i < message.length; i++){
+    if(message.charCodeAt(i) < 58 && message.charCodeAt(i) > 47){
+      var z = message.charCodeAt(i) - 48;
+      caesar += String.fromCharCode((z-k)%10 + 48)
+    }
+    else if(message.charCodeAt(i) > 64 && message.charCodeAt(i) < 91){
+      var x = message.charCodeAt(i) - 65;
+      caesar += String.fromCharCode((x-k)%26 + 65);
+    }
+    else if(message.charCodeAt(i) > 96 && message.charCodeAt(i) < 123){
+      var y = message.charCodeAt(i) - 97;
+      caesar += String.fromCharCode((y-k)%26 + 97);
+    }
+    else{
+      caesar += message.charAt(i);
+    }
+  }
+  return caesar;
 }
-
-li a{
-  display:block;
-  color:white;
-  padding: 14px 16px;
-  text-align: center;
-  background-color: grey;
-}
-
-</style>
-
-</head>
-
-<body>
-
-  <ul>
-    <div class="navigation">
-    <a class="active" href="encrypt.html">encrypt</a>
-    display:block;
-    <a href="decrypt.html">decrypt</a>
-    </div>
-  </ul>
-
-  display:block;
-  display:block;
-  display:block;
-
-  <p1 id="Welcome">Welcome to NorseVPN, a state of the art encrypter and decrypter. Use the tabs above to encrypt and decrypt your desired messages</p1>
-  <div id='container'>
-    While the mouse is within this area, it will have a custom cursor trail
-  </div>
-</body>
-
+function caesarBridge(){
+	var secretCode = document.getElementById("userMessage").value;
+	var secretShift = document.getElementById("shifter").value;
+	document.getElementById("output").innerText = caesarCipher(secretCode, secretShift);
+}	
+</script>
+	<form name= "caesarForm" action="">
+  	Message to be encrypted: <input type="text" name="messageRecorder" id = "userMessage"><br>
+  	Amount to be shifted: <input type="text" name="shiftRecorder" id = "shifter"><br><br>
+  	<input type="button" value="Submit" id="submit" onClick = "caesarBridge()">
+	</form>
+	<div id="output"/>
+    </body>
 </html>
